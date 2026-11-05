@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.classList.add("js");</script>
+  <title data-i18n="meta.title">Ikonect | Distribuidor y canal autorizado Ruckus, integrador Systimax en Colombia</title>
+  <meta name="description" content="Diseñamos, instalamos y mantenemos redes inalámbricas y cableado estructurado en Colombia. Canal autorizado Ruckus e integrador Systimax." data-i18n-attr="content:meta.description">
+  <meta name="theme-color" content="#1A2643">
+  <link rel="icon" href="assets/brand/isotipo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@700;800&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/portada.css">
+  <link rel="stylesheet" href="css/servicios.css">
+  <link rel="stylesheet" href="css/marcas.css">
+  <link rel="stylesheet" href="css/contacto.css">
+  <script src="js/i18n-en.js" defer></script>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/nav-activo.js" defer></script>
+  <script src="js/nosotros.js" defer></script>
+  <script src="js/servicios.js" defer></script>
+  <script src="js/escenarios.js" defer></script>
+  <script src="js/marcas.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido" data-i18n="a11y.skip">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="contenedor site-header__barra">
+      <a class="site-header__logo" href="#inicio">
+        <img class="logo logo--blanco" src="assets/brand/logo-blanco.png" alt="Ikonect" width="500" height="149">
+        <img class="logo logo--color" src="assets/brand/logo-color.png" alt="" width="2971" height="938">
+      </a>
+
+      <nav id="menu-principal" class="site-nav" aria-label="Principal" data-i18n-attr="aria-label:nav.aria">
+        <ul class="site-nav__lista">
+          <li><a href="#nosotros" data-i18n="nav.about">Nosotros</a></li>
+          <li><a href="#servicios" data-i18n="nav.services">Servicios</a></li>
+          <li><a href="#fabricantes" data-i18n="nav.manufacturers">Fabricantes</a></li>
+          <li><a href="#clientes" data-i18n="nav.clients">Clientes</a></li>
+          <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
+        </ul>
+        <span class="site-nav__indicador" aria-hidden="true"></span>
+        <a class="btn btn--cta site-nav__cta" href="#contacto" data-i18n="nav.cta">Contáctanos</a>
+      </nav>
+
+      <div class="site-header__acciones">
+        <button class="lang-toggle" type="button" data-lang-toggle aria-label="Cambiar idioma a inglés" data-i18n-attr="aria-label:lang.aria"><span data-i18n="lang.toggle">EN</span></button>
+        <a class="btn btn--cta site-header__cta" href="#contacto" data-i18n="nav.cta">Contáctanos</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú" data-i18n-attr="aria-label:nav.menu">
+          <span class="menu-toggle__barras" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section id="inicio" data-theme="dark">
+      <!-- Curvas del isotipo: la tarea de contacto copia este SVG como .arcos.arcos--eco (con otro id de degradado) -->
+      <svg class="arcos" viewBox="0 0 600 600" preserveAspectRatio="xMinYMax meet" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="arcos-degradado" x1="0" y1="0" x2="1" y2="0">
+            <stop class="arcos__stop" offset="0"/>
+            <stop class="arcos__stop arcos__stop--fin" offset="1"/>
+          </linearGradient>
+        </defs>
+        <path class="arcos__arco arcos__arco--exterior" pathLength="1" d="M40 600 A560 560 0 0 1 600 40"/>
+        <path class="arcos__arco arcos__arco--medio" pathLength="1" d="M130 600 A470 470 0 0 1 600 130"/>
+        <path class="arcos__arco arcos__arco--interior" pathLength="1" d="M220 600 A380 380 0 0 1 600 220" stroke="url(#arcos-degradado)"/>
+        <circle class="arcos__punto" cx="112" cy="112" r="30"/>
+      </svg>
+      <div class="contenedor portada">
+        <div class="portada__texto">
+          <h1 data-i18n="hero.title">Conectamos tu empresa, del cable al access point</h1>
+          <p class="portada__sub" data-i18n="hero.sub">Canal autorizado Ruckus e integrador Systimax. Diseñamos, instalamos y mantenemos redes inalámbricas y cableado estructurado en Colombia.</p>
+          <div class="portada__acciones">
+            <a class="btn btn--cta" href="#contacto" data-i18n="hero.cta">Contáctanos</a>
+            <a class="btn btn--ghost portada__ghost" href="#servicios" data-i18n="hero.services">Ver servicios</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="nosotros" data-theme="light">
+      <div class="contenedor nosotros">
+        <h2 class="nosotros__frase" data-i18n="about.title">Soluciones a la medida sobre redes de datos de alta velocidad</h2>
+        <div class="nosotros__cuerpo">
+          <p class="nosotros__texto" data-i18n="about.text">Ikonect integra soluciones tecnológicas sobre cableado estructurado, fibra óptica y redes inalámbricas, con el respaldo de fabricantes líderes a nivel mundial y de un equipo humano comprometido. Así acompañamos a cada cliente con experiencias que le dan una ventaja competitiva duradera.</p>
+          <ul class="medios" aria-label="Medios que integramos" data-i18n-attr="aria-label:about.media.aria">
+            <li class="medio medio--cobre">
+              <svg class="medio__linea" viewBox="0 0 96 24" width="96" height="24" aria-hidden="true" focusable="false"><path pathLength="1" d="M2 12 H88"/><circle class="medio__fin" cx="90" cy="12" r="4"/></svg>
+              <span class="medio__texto"><strong class="medio__nombre" data-i18n="about.media.copper">Cobre</strong> <span class="medio__desc" data-i18n="about.media.copper.desc">Cableado estructurado certificado</span></span>
+            </li>
+            <li class="medio medio--fibra">
+              <svg class="medio__linea" viewBox="0 0 96 24" width="96" height="24" aria-hidden="true" focusable="false"><path d="M2 12 H88"/><circle class="medio__fin" cx="90" cy="12" r="4"/><circle class="medio__pulso" cx="2" cy="12" r="3.5"/></svg>
+              <span class="medio__texto"><strong class="medio__nombre" data-i18n="about.media.fiber">Fibra óptica</strong> <span class="medio__desc" data-i18n="about.media.fiber.desc">Enlaces troncales y entre edificios</span></span>
+            </li>
+            <li class="medio medio--inalambrico">
+              <svg class="medio__linea" viewBox="0 0 96 24" width="96" height="24" aria-hidden="true" focusable="false"><path pathLength="1" d="M2 12 C8 4 14 4 20 12 S32 20 38 12 S50 4 56 12 S68 20 74 12 S82 6 86 9"/><circle class="medio__fin" cx="90" cy="12" r="4"/><circle class="medio__onda" cx="90" cy="12" r="4"/></svg>
+              <span class="medio__texto"><strong class="medio__nombre" data-i18n="about.media.wireless">Inalámbrico</strong> <span class="medio__desc" data-i18n="about.media.wireless.desc">Wi‑Fi corporativo Ruckus</span></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios" data-theme="light">
+      <!-- Iconos: Phosphor Icons (MIT), peso duotone, @phosphor-icons/core 2.1.1. Se definen una vez y se usan con <use> -->
+      <svg class="sprite" aria-hidden="true" focusable="false">
+        <symbol id="ph-wifi-high" viewBox="0 0 256 256" fill="currentColor" stroke="none"><path d="M238.2,87.69l-104,125.43a8,8,0,0,1-12.3,0L17.8,87.69a7.79,7.79,0,0,1,1.31-11.21,180.75,180.75,0,0,1,217.78,0A7.79,7.79,0,0,1,238.2,87.69Z" opacity=".2"/><path d="M247.89,80.91a15.93,15.93,0,0,0-6.17-10.81A186.67,186.67,0,0,0,128,32,186.67,186.67,0,0,0,14.28,70.1,15.93,15.93,0,0,0,8.11,80.91,15.65,15.65,0,0,0,11.65,92.8l104,125.43A15.93,15.93,0,0,0,128,224h0a15.93,15.93,0,0,0,12.31-5.77l104-125.43A15.65,15.65,0,0,0,247.89,80.91ZM128,208,24.09,82.74A170.76,170.76,0,0,1,128,48,170.76,170.76,0,0,1,231.91,82.74Z"/></symbol>
+        <symbol id="ph-plugs-connected" viewBox="0 0 256 256" fill="currentColor" stroke="none"><path d="M185,127,127,185a24,24,0,0,1-33.94,0L71,162.91A24,24,0,0,1,71,129L129,71a24,24,0,0,1,33.94,0L185,93.09A24,24,0,0,1,185,127Z" opacity=".2"/><path d="M237.66,18.34a8,8,0,0,0-11.32,0l-52.4,52.41-5.37-5.38a32.05,32.05,0,0,0-45.26,0L100,88.69l-6.34-6.35A8,8,0,0,0,82.34,93.66L88.69,100,65.37,123.31a32,32,0,0,0,0,45.26l5.38,5.37-52.41,52.4a8,8,0,0,0,11.32,11.32l52.4-52.41,5.37,5.38a32.06,32.06,0,0,0,45.26,0L156,167.31l6.34,6.35a8,8,0,0,0,11.32-11.32L167.31,156l23.32-23.31a32,32,0,0,0,0-45.26l-5.38-5.37,52.41-52.4A8,8,0,0,0,237.66,18.34Zm-116.29,161a16,16,0,0,1-22.62,0L76.69,157.25a16,16,0,0,1,0-22.62L100,111.31,144.69,156Zm57.94-57.94h0L156,144.69,111.31,100l23.32-23.31a16,16,0,0,1,22.62,0l22.06,22a16,16,0,0,1,0,22.63ZM88.57,35A8,8,0,0,1,103.43,29l8,20A8,8,0,0,1,96.57,55ZM24.57,93A8,8,0,0,1,35,88.57l20,8A8,8,0,0,1,49,111.43l-20-8A8,8,0,0,1,24.57,93ZM231.43,163a8,8,0,0,1-10.4,4.46l-20-8A8,8,0,1,1,207,144.57l20,8A8,8,0,0,1,231.43,163Zm-64,58.06A8,8,0,0,1,152.57,227l-8-20A8,8,0,0,1,159.43,201Z"/></symbol>
+        <symbol id="ph-shield-check" viewBox="0 0 256 256" fill="currentColor" stroke="none"><path d="M216,56v56c0,96-88,120-88,120S40,208,40,112V56a8,8,0,0,1,8-8H208A8,8,0,0,1,216,56Z" opacity=".2"/><path d="M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.26,47,25.53a8,8,0,0,0,4.2,0c1-.27,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm0,72c0,37.07-13.66,67.16-40.6,89.42A129.3,129.3,0,0,1,128,223.62a128.25,128.25,0,0,1-38.92-21.81C61.82,179.51,48,149.3,48,112l0-56,160,0ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z"/></symbol>
+        <symbol id="ph-cloud-check" viewBox="0 0 256 256" fill="currentColor" stroke="none"><path d="M240,128a80,80,0,0,1-80,80H72A56,56,0,1,1,85.92,97.74l0,.1A80,80,0,0,1,240,128Z" opacity=".2"/><path d="M160,40A88.09,88.09,0,0,0,81.29,88.67,64,64,0,1,0,72,216h88a88,88,0,0,0,0-176Zm0,160H72a48,48,0,0,1,0-96c1.1,0,2.2,0,3.29.11A88,88,0,0,0,72,128a8,8,0,0,0,16,0,72,72,0,1,1,72,72Zm37.66-93.66a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L144,148.69l42.34-42.35A8,8,0,0,1,197.66,106.34Z"/></symbol>
+        <symbol id="ph-desktop-tower" viewBox="0 0 256 256" fill="currentColor" stroke="none"><path d="M240,48V208a8,8,0,0,1-8,8H152a8,8,0,0,1-8-8V48a8,8,0,0,1,8-8h80A8,8,0,0,1,240,48Z" opacity=".2"/><path d="M216,72a8,8,0,0,1-8,8H176a8,8,0,0,1,0-16h32A8,8,0,0,1,216,72Zm-8,24H176a8,8,0,0,0,0,16h32a8,8,0,0,0,0-16Zm40-48V208a16,16,0,0,1-16,16H152a16,16,0,0,1-16-16V192H96v16h16a8,8,0,0,1,0,16H64a8,8,0,0,1,0-16H80V192H32A24,24,0,0,1,8,168V96A24,24,0,0,1,32,72H136V48a16,16,0,0,1,16-16h80A16,16,0,0,1,248,48ZM136,176V88H32a8,8,0,0,0-8,8v72a8,8,0,0,0,8,8Zm96,32V48H152V208h80Zm-40-40a12,12,0,1,0,12,12A12,12,0,0,0,192,168Z"/></symbol>
+        <symbol id="ph-wrench" viewBox="0 0 256 256" fill="currentColor" stroke="none"><path d="M224,96a64,64,0,0,1-94.94,56L73,217A24,24,0,0,1,39,183L104,126.94a64,64,0,0,1,80-90.29L144,80l5.66,26.34L176,112l43.35-40A63.8,63.8,0,0,1,224,96Z" opacity=".2"/><path d="M226.76,69a8,8,0,0,0-12.84-2.88l-40.3,37.19-17.23-3.7-3.7-17.23,37.19-40.3A8,8,0,0,0,187,29.24,72,72,0,0,0,88,96,72.34,72.34,0,0,0,94,124.94L33.79,177c-.15.12-.29.26-.43.39a32,32,0,0,0,45.26,45.26c.13-.13.27-.28.39-.42L131.06,162A72,72,0,0,0,232,96,71.56,71.56,0,0,0,226.76,69ZM160,152a56.14,56.14,0,0,1-27.07-7,8,8,0,0,0-9.92,1.77L67.11,211.51a16,16,0,0,1-22.62-22.62L109.18,133a8,8,0,0,0,1.77-9.93,56,56,0,0,1,58.36-82.31l-31.2,33.81a8,8,0,0,0-1.94,7.1L141.83,108a8,8,0,0,0,6.14,6.14l26.35,5.66a8,8,0,0,0,7.1-1.94l33.81-31.2A56.06,56.06,0,0,1,160,152Z"/></symbol>
+        <symbol id="ph-arrow-square-out" viewBox="0 0 256 256" fill="currentColor" stroke="none"><path d="M184,80V208a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V80a8,8,0,0,1,8-8H176A8,8,0,0,1,184,80Z" opacity=".2"/><path d="M224,104a8,8,0,0,1-16,0V59.32l-66.33,66.34a8,8,0,0,1-11.32-11.32L196.68,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"/></symbol>
+        <symbol id="ph-hard-drives" viewBox="0 0 256 256" fill="currentColor" stroke="none"><path d="M216,152v48a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V152a8,8,0,0,1,8-8H208A8,8,0,0,1,216,152ZM208,48H48a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8H208a8,8,0,0,0,8-8V56A8,8,0,0,0,208,48Z" opacity=".2"/><path d="M208,136H48a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V152A16,16,0,0,0,208,136Zm0,64H48V152H208v48Zm0-160H48A16,16,0,0,0,32,56v48a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V56A16,16,0,0,0,208,40Zm0,64H48V56H208v48ZM192,80a12,12,0,1,1-12-12A12,12,0,0,1,192,80Zm0,96a12,12,0,1,1-12-12A12,12,0,0,1,192,176Z"/></symbol>
+        <symbol id="ph-bed" viewBox="0 0 256 256" fill="currentColor" stroke="none"><path d="M248,112v56H112V80H216A32,32,0,0,1,248,112Z" opacity=".2"/><path d="M216,72H32V48a8,8,0,0,0-16,0V208a8,8,0,0,0,16,0V176H240v32a8,8,0,0,0,16,0V112A40,40,0,0,0,216,72ZM32,88h72v72H32Zm88,72V88h96a24,24,0,0,1,24,24v48Z"/></symbol>
+        <symbol id="ph-chalkboard" viewBox="0 0 256 256" fill="currentColor" stroke="none"><path d="M192,80v88H120v32H64V80Z" opacity=".2"/><path d="M240,192h-8V56a16,16,0,0,0-16-16H40A16,16,0,0,0,24,56V192H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16ZM40,56H216V192H200V168a8,8,0,0,0-8-8H120a8,8,0,0,0-8,8v24H72V88H184v48a8,8,0,0,0,16,0V80a8,8,0,0,0-8-8H64a8,8,0,0,0-8,8V192H40ZM184,192H128V176h56Z"/></symbol>
+        <symbol id="ph-books" viewBox="0 0 256 256" fill="currentColor" stroke="none"><path d="M48,72h64V184H48ZM190.64,38.39a8,8,0,0,0-9.5-6.21l-46.81,10a8.07,8.07,0,0,0-6.15,9.57L139.79,107l62.46-13.42Z" opacity=".2"/><path d="M231.65,194.55,198.46,36.75a16,16,0,0,0-19-12.39L132.65,34.42a16.08,16.08,0,0,0-12.3,19l33.19,157.8A16,16,0,0,0,169.16,224a16.25,16.25,0,0,0,3.38-.36l46.81-10.06A16.09,16.09,0,0,0,231.65,194.55ZM136,50.15c0-.06,0-.09,0-.09l46.8-10,3.33,15.87L139.33,66Zm6.62,31.47,46.82-10.05,3.34,15.9L146,97.53Zm6.64,31.57,46.82-10.06,13.3,63.24-46.82,10.06ZM216,197.94l-46.8,10-3.33-15.87L212.67,182,216,197.85C216,197.91,216,197.94,216,197.94ZM104,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V48A16,16,0,0,0,104,32ZM56,48h48V64H56Zm0,32h48v96H56Zm48,128H56V192h48v16Z"/></symbol>
+        <symbol id="ph-desktop" viewBox="0 0 256 256" fill="currentColor" stroke="none"><path d="M224,64v88H32V64A16,16,0,0,1,48,48H208A16,16,0,0,1,224,64Z" opacity=".2"/><path d="M208,40H48A24,24,0,0,0,24,64V176a24,24,0,0,0,24,24h72v16H96a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16H136V200h72a24,24,0,0,0,24-24V64A24,24,0,0,0,208,40ZM48,56H208a8,8,0,0,1,8,8v80H40V64A8,8,0,0,1,48,56ZM208,184H48a8,8,0,0,1-8-8V160H216v16A8,8,0,0,1,208,184Z"/></symbol>
+        <symbol id="ph-couch" viewBox="0 0 256 256" fill="currentColor" stroke="none"><path d="M240,120v48a8,8,0,0,1-8,8H24a8,8,0,0,1-8-8V120a8,8,0,0,1,8-8V72a8,8,0,0,1,8-8H224a8,8,0,0,1,8,8v40A8,8,0,0,1,240,120Z" opacity=".2"/><path d="M240,106.17V72a16,16,0,0,0-16-16H32A16,16,0,0,0,16,72v34.17A16,16,0,0,0,8,120v48a16,16,0,0,0,16,16h8v16a8,8,0,0,0,16,0V184H208v16a8,8,0,0,0,16,0V184h8a16,16,0,0,0,16-16V120A16,16,0,0,0,240,106.17ZM224,104h-8a16,16,0,0,0-16,16v16H136V72h88ZM120,72v64H56V120a16,16,0,0,0-16-16H32V72Zm112,96H24V120H40v24a8,8,0,0,0,8,8H208a8,8,0,0,0,8-8V120h16Z"/></symbol>
+        <symbol id="ph-armchair" viewBox="0 0 256 256" fill="currentColor" stroke="none"><path d="M240,128a32,32,0,0,1-32,32v40a8,8,0,0,1-8,8H56a8,8,0,0,1-8-8V160a32,32,0,0,1,0-64V72A32,32,0,0,1,80,40h96a32,32,0,0,1,32,32V96A32,32,0,0,1,240,128Z" opacity=".2"/><path d="M216,88.8V72a40,40,0,0,0-40-40H80A40,40,0,0,0,40,72V88.8a40,40,0,0,0,0,78.4V200a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V167.2a40,40,0,0,0,0-78.4ZM80,48h96a24,24,0,0,1,24,24V88.8A40.07,40.07,0,0,0,168,128H88A40.07,40.07,0,0,0,56,88.8V72A24,24,0,0,1,80,48ZM208.39,152H208a8,8,0,0,0-8,8v40H56V160a8,8,0,0,0-8-8h-.39A24,24,0,1,1,72,128v40a8,8,0,0,0,16,0V144h80v24a8,8,0,0,0,16,0V128a24,24,0,1,1,24.39,24Z"/></symbol>
+        <symbol id="ph-fork-knife" viewBox="0 0 256 256" fill="currentColor" stroke="none"><path d="M208,40V168H152S152,64,208,40Z" opacity=".2"/><path d="M72,88V40a8,8,0,0,1,16,0V88a8,8,0,0,1-16,0ZM216,40V224a8,8,0,0,1-16,0V176H152a8,8,0,0,1-8-8,268.75,268.75,0,0,1,7.22-56.88c9.78-40.49,28.32-67.63,53.63-78.47A8,8,0,0,1,216,40ZM200,53.9c-32.17,24.57-38.47,84.42-39.7,106.1H200ZM119.89,38.69a8,8,0,1,0-15.78,2.63L112,88.63a32,32,0,0,1-64,0l7.88-47.31a8,8,0,1,0-15.78-2.63l-8,48A8.17,8.17,0,0,0,32,88a48.07,48.07,0,0,0,40,47.32V224a8,8,0,0,0,16,0V135.32A48.07,48.07,0,0,0,128,88a8.17,8.17,0,0,0-.11-1.31Z"/></symbol>
+        <symbol id="ph-cash-register" viewBox="0 0 256 256" fill="currentColor" stroke="none"><path d="M232,160H24L46.49,70.06A8,8,0,0,1,54.25,64h147.5a8,8,0,0,1,7.76,6.06Z" opacity=".2"/><path d="M239.76,158.06,217.28,68.12A16,16,0,0,0,201.75,56H136V40a16,16,0,0,0-16-16H80A16,16,0,0,0,64,40V56H54.25A16,16,0,0,0,38.72,68.12L16.24,158.06A7.93,7.93,0,0,0,16,160v32a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V160A7.93,7.93,0,0,0,239.76,158.06ZM80,40h40V56H80ZM54.25,72h147.5l20,80H34.25ZM32,192V168H224v24ZM64,96a8,8,0,0,1,8-8H88a8,8,0,0,1,0,16H72A8,8,0,0,1,64,96Zm48,0a8,8,0,0,1,8-8h16a8,8,0,0,1,0,16H120A8,8,0,0,1,112,96Zm48,0a8,8,0,0,1,8-8h16a8,8,0,0,1,0,16H168A8,8,0,0,1,160,96ZM64,128a8,8,0,0,1,8-8H88a8,8,0,0,1,0,16H72A8,8,0,0,1,64,128Zm48,0a8,8,0,0,1,8-8h16a8,8,0,0,1,0,16H120A8,8,0,0,1,112,128Zm48,0a8,8,0,0,1,8-8h16a8,8,0,0,1,0,16H168A8,8,0,0,1,160,128Z"/></symbol>
+        <symbol id="ph-check-circle" viewBox="0 0 256 256" fill="currentColor" stroke="none"><path d="M224,128a96,96,0,1,1-96-96A96,96,0,0,1,224,128Z" opacity=".2"/><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></symbol>
+      </svg>
+      <div class="contenedor">
+        <div class="servicios__cabecera">
+          <h2 data-i18n="services.title">Todo lo que tu red necesita, en un mismo plano</h2>
+          <p class="servicios__intro"><span class="solo-js" data-i18n="services.intro.js">Elige el tipo de espacio y recorre los servicios.</span> <span data-i18n="services.intro">Así se ven nuestras redes en oficinas, hoteles y colegios.</span></p>
+        </div>
+
+        <div class="servicios">
+          <div class="servicios__plano">
+            <!-- Tipo de espacio: grupo de botones conmutables; js/escenarios.js cambia data-escenario en el plano. Sin JavaScript se ve Empresa -->
+            <div class="plano-escenarios" role="group" aria-label="Tipo de espacio" data-i18n-attr="aria-label:services.scenarios.aria">
+              <button class="plano-escenarios__boton" type="button" aria-pressed="true" tabindex="0" data-escenario="empresa" data-i18n="services.scenarios.business">Empresa</button>
+              <button class="plano-escenarios__boton" type="button" aria-pressed="false" tabindex="-1" data-escenario="hotel" data-i18n="services.scenarios.hotel">Hotel</button>
+              <button class="plano-escenarios__boton" type="button" aria-pressed="false" tabindex="-1" data-escenario="educacion" data-i18n="services.scenarios.education">Educación</button>
+            </div>
+            <!-- Plano: una capa (g.capa) por servicio; js/servicios.js marca la activa con data-activa.
+                 Lo exclusivo de cada escenario lleva data-solo -->
+            <svg id="plano" class="plano" viewBox="0 0 400 300" data-activa="wifi" data-escenario="empresa" role="img" aria-label="Plano del espacio con la capa del servicio seleccionado" data-i18n-attr="aria-label:services.plan.aria" focusable="false">
+              <defs>
+                <radialGradient id="plano-cobertura">
+                  <stop class="plano__stop plano__stop--fuerte" offset="0"/>
+                  <stop class="plano__stop plano__stop--media" offset=".55"/>
+                  <stop class="plano__stop plano__stop--borde" offset="1"/>
+                </radialGradient>
+                <clipPath id="plano-recorte"><rect x="14" y="14" width="372" height="272"/></clipPath>
+              </defs>
+
+              <rect class="plano__fondo" width="400" height="300"/>
+
+              <g class="capa capa--wifi" data-capa="wifi" clip-path="url(#plano-recorte)">
+                <g data-solo="empresa"><circle class="plano__cobertura" cx="80" cy="46" r="112" fill="url(#plano-cobertura)"/><circle class="plano__cobertura" cx="222" cy="170" r="122" fill="url(#plano-cobertura)"/><circle class="plano__cobertura" cx="340" cy="46" r="106" fill="url(#plano-cobertura)"/><circle class="anillo anillo--1" cx="80" cy="46" r="40"/><circle class="anillo anillo--2" cx="222" cy="170" r="40"/><circle class="anillo anillo--3" cx="340" cy="46" r="40"/></g>
+                <g data-solo="hotel"><circle class="plano__cobertura" cx="200" cy="113" r="100" fill="url(#plano-cobertura)"/><circle class="plano__cobertura" cx="324" cy="113" r="96" fill="url(#plano-cobertura)"/><circle class="plano__cobertura" cx="100" cy="196" r="100" fill="url(#plano-cobertura)"/><circle class="plano__cobertura" cx="220" cy="228" r="90" fill="url(#plano-cobertura)"/><circle class="anillo anillo--1" cx="200" cy="113" r="40"/><circle class="anillo anillo--2" cx="324" cy="113" r="40"/><circle class="anillo anillo--3" cx="100" cy="196" r="40"/><circle class="anillo anillo--4" cx="220" cy="228" r="40"/></g>
+                <g data-solo="educacion"><circle class="plano__cobertura" cx="86" cy="74" r="88" fill="url(#plano-cobertura)"/><circle class="plano__cobertura" cx="206" cy="74" r="88" fill="url(#plano-cobertura)"/><circle class="plano__cobertura" cx="360" cy="92" r="86" fill="url(#plano-cobertura)"/><circle class="plano__cobertura" cx="106" cy="218" r="96" fill="url(#plano-cobertura)"/><circle class="anillo anillo--1" cx="86" cy="74" r="40"/><circle class="anillo anillo--2" cx="206" cy="74" r="40"/><circle class="anillo anillo--3" cx="360" cy="92" r="40"/><circle class="anillo anillo--4" cx="106" cy="218" r="40"/></g>
+              </g>
+
+              <!-- Arquitectura de cada escenario (data-solo). El cascarón del edificio y el Centro de datos son comunes -->
+              <g class="plano__escenario" data-solo="empresa">
+                <g class="plano__muebles"><rect x="40" y="66" width="80" height="28" rx="6"/><circle cx="56" cy="60" r="3.5"/><circle cx="80" cy="60" r="3.5"/><circle cx="104" cy="60" r="3.5"/><circle cx="56" cy="100" r="3.5"/><circle cx="80" cy="100" r="3.5"/><circle cx="104" cy="100" r="3.5"/><rect x="312" y="64" width="48" height="18" rx="1.5"/><circle cx="336" cy="92" r="4.5"/><rect x="28" y="150" width="40" height="14" rx="1.5"/><circle cx="48" cy="174" r="4.5"/><rect x="86" y="150" width="40" height="14" rx="1.5"/><circle cx="106" cy="174" r="4.5"/><rect x="144" y="150" width="40" height="14" rx="1.5"/><circle cx="164" cy="174" r="4.5"/><rect x="28" y="222" width="40" height="14" rx="1.5"/><circle cx="48" cy="246" r="4.5"/><rect x="86" y="222" width="40" height="14" rx="1.5"/><circle cx="106" cy="246" r="4.5"/><rect x="144" y="222" width="40" height="14" rx="1.5"/><circle cx="164" cy="246" r="4.5"/></g>
+                <path class="plano__muro" d="M146 14V118M14 118H100M124 118H146M254 14V118M254 118H278M302 118H386"/>
+                <path class="plano__puerta" d="M124 118V94A24 24 0 0 0 100 118M278 118V94A24 24 0 0 1 302 118"/>
+              </g>
+              <g class="plano__escenario" data-solo="hotel">
+                <g class="plano__muebles"><use href="#ph-bed" x="27" y="34" width="26" height="26"/><use href="#ph-bed" x="89" y="34" width="26" height="26"/><use href="#ph-bed" x="151" y="34" width="26" height="26"/><use href="#ph-bed" x="213" y="34" width="26" height="26"/><use href="#ph-bed" x="275" y="34" width="26" height="26"/><use href="#ph-bed" x="337" y="34" width="26" height="26"/><use href="#ph-couch" x="22" y="154" width="28" height="28"/><use href="#ph-armchair" x="58" y="158" width="20" height="20"/><rect x="24" y="232" width="86" height="14" rx="2"/><circle cx="196" cy="160" r="9"/><use href="#ph-fork-knife" x="191" y="155" width="10" height="10"/><circle cx="232" cy="160" r="9"/><use href="#ph-fork-knife" x="227" y="155" width="10" height="10"/><circle cx="290" cy="160" r="9"/><use href="#ph-fork-knife" x="285" y="155" width="10" height="10"/><circle cx="326" cy="160" r="9"/><use href="#ph-fork-knife" x="321" y="155" width="10" height="10"/><circle cx="195" cy="262" r="9"/><use href="#ph-fork-knife" x="190" y="257" width="10" height="10"/><circle cx="232" cy="262" r="9"/><use href="#ph-fork-knife" x="227" y="257" width="10" height="10"/></g>
+                <path class="plano__muro" d="M76 14V100M138 14V100M200 14V100M262 14V100M324 14V100M14 100H54M70 100H116M132 100H178M194 100H240M256 100H302M318 100H364M380 100H386M14 126H60M90 126H280M310 126H386M170 126V180M170 220V286"/>
+                <path class="plano__puerta" d="M70 100V84A16 16 0 0 0 54 100M132 100V84A16 16 0 0 0 116 100M194 100V84A16 16 0 0 0 178 100M256 100V84A16 16 0 0 0 240 100M318 100V84A16 16 0 0 0 302 100M380 100V84A16 16 0 0 0 364 100"/>
+              </g>
+              <g class="plano__escenario" data-solo="educacion">
+                <g class="plano__muebles"><use href="#ph-chalkboard" x="64" y="16" width="22" height="22"/><rect x="26" y="56" width="16" height="8" rx="1"/><rect x="58" y="56" width="16" height="8" rx="1"/><rect x="98" y="56" width="16" height="8" rx="1"/><rect x="26" y="74" width="16" height="8" rx="1"/><rect x="58" y="74" width="16" height="8" rx="1"/><rect x="98" y="74" width="16" height="8" rx="1"/><rect x="26" y="92" width="16" height="8" rx="1"/><rect x="58" y="92" width="16" height="8" rx="1"/><rect x="98" y="92" width="16" height="8" rx="1"/><use href="#ph-chalkboard" x="184" y="16" width="22" height="22"/><rect x="146" y="56" width="16" height="8" rx="1"/><rect x="178" y="56" width="16" height="8" rx="1"/><rect x="218" y="56" width="16" height="8" rx="1"/><rect x="146" y="74" width="16" height="8" rx="1"/><rect x="178" y="74" width="16" height="8" rx="1"/><rect x="218" y="74" width="16" height="8" rx="1"/><rect x="146" y="92" width="16" height="8" rx="1"/><rect x="178" y="92" width="16" height="8" rx="1"/><rect x="218" y="92" width="16" height="8" rx="1"/><rect x="266" y="40" width="64" height="7" rx="1"/><rect x="266" y="56" width="64" height="7" rx="1"/><use href="#ph-books" x="338" y="38" width="18" height="18"/><rect x="266" y="82" width="70" height="16" rx="2"/><circle cx="280" cy="104" r="3.5"/><circle cx="301" cy="104" r="3.5"/><circle cx="322" cy="104" r="3.5"/><rect x="26" y="184" width="34" height="14" rx="1.5"/><rect x="68" y="184" width="34" height="14" rx="1.5"/><rect x="110" y="184" width="34" height="14" rx="1.5"/><rect x="152" y="184" width="34" height="14" rx="1.5"/><rect x="26" y="236" width="34" height="14" rx="1.5"/><rect x="68" y="236" width="34" height="14" rx="1.5"/><rect x="110" y="236" width="34" height="14" rx="1.5"/><rect x="152" y="236" width="34" height="14" rx="1.5"/></g>
+                <path class="plano__muro" d="M134 14V130M254 14V130M14 130H112M130 130H232M250 130H300M320 130H386M14 152H150M170 152H196M196 152V286"/>
+                <path class="plano__puerta" d="M130 130V112A18 18 0 0 0 112 130M250 130V112A18 18 0 0 0 232 130M320 130V110A20 20 0 0 0 300 130M170 152V172A20 20 0 0 1 150 152"/>
+              </g>
+              <path class="plano__muro" d="M270 196H386M270 196V256M270 280V286"/>
+              <path class="plano__puerta" d="M270 256H246A24 24 0 0 0 270 280"/>
+              <rect class="plano__exterior" x="14" y="14" width="372" height="272"/>
+              <path class="plano__ventana" data-solo="empresa" d="M38 14H118M178 14H222M282 14H362M14 162V246M386 132V180"/>
+              <path class="plano__ventana" data-solo="hotel" d="M26 14H58M88 14H120M150 14H182M212 14H244M274 14H306M336 14H368M14 160V250M386 136V186"/>
+              <path class="plano__ventana" data-solo="educacion" d="M14 30V110M282 14H370M14 172V270M386 136V186"/>
+
+              <g class="capa capa--cableado" data-capa="cableado">
+                <g data-solo="empresa"><path class="plano__cable" d="M62 164V200M62 222V200M120 164V200M120 222V200M178 164V200M178 222V200M222 177V200M87 46H160V200M347 46H372V180H314V214"/><path class="plano__troncal" d="M62 200H254V240H302"/></g>
+                <g data-solo="hotel"><path class="plano__cable" d="M45 66V104M107 66V104M169 66V104M231 66V104M293 66V104M355 66V104M357 166V104M107 196H150V104M36 246V256H150V196M62 246V256M88 246V256M227 228H276"/><path class="plano__troncal" d="M45 104H355M276 104V240H302"/></g>
+                <g data-solo="educacion"><path class="plano__cable" d="M86 81V141M206 81V141M360 99V141M43 198V218M43 236V218M85 198V218M85 236V218M127 198V218M127 236V218M169 198V218M169 236V218M43 218H190V141"/><path class="plano__troncal" d="M86 141H360M262 141V240H302"/></g>
+              </g>
+
+              <g class="capa capa--licencias" data-capa="licencias">
+                <g data-solo="empresa"><path class="plano__enlace-nube" d="M202 58L80 46M202 58L222 170M202 58L340 46"/><circle class="plano__licencia" cx="80" cy="46" r="11.5"/><circle class="plano__licencia" cx="222" cy="170" r="11.5"/><circle class="plano__licencia" cx="340" cy="46" r="11.5"/><circle class="plano__nube" cx="202" cy="58" r="15"/><use class="plano__nube-icono" href="#ph-cloud-check" x="192" y="48" width="20" height="20"/></g>
+                <g data-solo="hotel"><path class="plano__enlace-nube" d="M128 170L200 113M128 170L324 113M128 170L100 196M128 170L220 228"/><circle class="plano__licencia" cx="200" cy="113" r="11.5"/><circle class="plano__licencia" cx="324" cy="113" r="11.5"/><circle class="plano__licencia" cx="100" cy="196" r="11.5"/><circle class="plano__licencia" cx="220" cy="228" r="11.5"/><circle class="plano__nube" cx="128" cy="170" r="15"/><use class="plano__nube-icono" href="#ph-cloud-check" x="118" y="160" width="20" height="20"/></g>
+                <g data-solo="educacion"><path class="plano__enlace-nube" d="M233 212L86 74M233 212L206 74M233 212L360 92M233 212L106 218"/><circle class="plano__licencia" cx="86" cy="74" r="11.5"/><circle class="plano__licencia" cx="206" cy="74" r="11.5"/><circle class="plano__licencia" cx="360" cy="92" r="11.5"/><circle class="plano__licencia" cx="106" cy="218" r="11.5"/><circle class="plano__nube" cx="233" cy="212" r="15"/><use class="plano__nube-icono" href="#ph-cloud-check" x="223" y="202" width="20" height="20"/></g>
+              </g>
+
+              <g class="capa capa--firewall" data-capa="firewall">
+                <path class="plano__acometida" d="M400 249H372M344 249H326"/>
+                <rect class="plano__firewall" x="344" y="238" width="28" height="22" rx="3"/>
+                <use class="plano__escudo" href="#ph-shield-check" x="350" y="241" width="16" height="16"/>
+              </g>
+
+              <g class="capa capa--equipos" data-capa="equipos">
+                <g data-solo="empresa"><rect class="plano__puesto" x="28" y="150" width="40" height="14" rx="1.5"/><use class="plano__equipo" href="#ph-desktop" x="42" y="151" width="12" height="12"/><rect class="plano__puesto" x="86" y="150" width="40" height="14" rx="1.5"/><use class="plano__equipo" href="#ph-desktop" x="100" y="151" width="12" height="12"/><rect class="plano__puesto" x="144" y="150" width="40" height="14" rx="1.5"/><use class="plano__equipo" href="#ph-desktop" x="158" y="151" width="12" height="12"/><rect class="plano__puesto" x="28" y="222" width="40" height="14" rx="1.5"/><use class="plano__equipo" href="#ph-desktop" x="42" y="223" width="12" height="12"/><rect class="plano__puesto" x="86" y="222" width="40" height="14" rx="1.5"/><use class="plano__equipo" href="#ph-desktop" x="100" y="223" width="12" height="12"/><rect class="plano__puesto" x="144" y="222" width="40" height="14" rx="1.5"/><use class="plano__equipo" href="#ph-desktop" x="158" y="223" width="12" height="12"/></g>
+                <g data-solo="hotel"><rect class="plano__puesto" x="24" y="232" width="86" height="14" rx="2"/><use class="plano__equipo" href="#ph-desktop" x="30" y="233" width="12" height="12"/><use class="plano__equipo" href="#ph-desktop" x="56" y="233" width="12" height="12"/><use class="plano__equipo" href="#ph-desktop" x="82" y="233" width="12" height="12"/><use class="plano__equipo" href="#ph-cash-register" x="350" y="159" width="14" height="14"/></g>
+                <g data-solo="educacion"><rect class="plano__puesto" x="26" y="184" width="34" height="14" rx="1.5"/><use class="plano__equipo" href="#ph-desktop" x="37" y="185" width="12" height="12"/><rect class="plano__puesto" x="68" y="184" width="34" height="14" rx="1.5"/><use class="plano__equipo" href="#ph-desktop" x="79" y="185" width="12" height="12"/><rect class="plano__puesto" x="110" y="184" width="34" height="14" rx="1.5"/><use class="plano__equipo" href="#ph-desktop" x="121" y="185" width="12" height="12"/><rect class="plano__puesto" x="152" y="184" width="34" height="14" rx="1.5"/><use class="plano__equipo" href="#ph-desktop" x="163" y="185" width="12" height="12"/><rect class="plano__puesto" x="26" y="236" width="34" height="14" rx="1.5"/><use class="plano__equipo" href="#ph-desktop" x="37" y="237" width="12" height="12"/><rect class="plano__puesto" x="68" y="236" width="34" height="14" rx="1.5"/><use class="plano__equipo" href="#ph-desktop" x="79" y="237" width="12" height="12"/><rect class="plano__puesto" x="110" y="236" width="34" height="14" rx="1.5"/><use class="plano__equipo" href="#ph-desktop" x="121" y="237" width="12" height="12"/><rect class="plano__puesto" x="152" y="236" width="34" height="14" rx="1.5"/><use class="plano__equipo" href="#ph-desktop" x="163" y="237" width="12" height="12"/></g>
+              </g>
+
+              <!-- Zonas: van sobre las capas para que su halo corte cualquier línea que las cruce -->
+              <text class="plano__zona" data-solo="empresa" x="24" y="29" data-i18n="services.plan.meeting">Sala de juntas</text>
+              <text class="plano__zona" data-solo="empresa" x="266" y="29" data-i18n="services.plan.office">Gerencia</text>
+              <text class="plano__zona" data-solo="empresa" x="24" y="140" data-i18n="services.plan.open">Área abierta</text>
+              <text class="plano__zona" data-solo="hotel" x="24" y="118" data-i18n="services.plan.hotel.rooms">Habitaciones</text>
+              <text class="plano__zona" data-solo="hotel" x="24" y="144" data-i18n="services.plan.hotel.lobby">Lobby y recepción</text>
+              <text class="plano__zona" data-solo="hotel" x="182" y="190" data-i18n="services.plan.hotel.restaurant">Restaurante</text>
+              <text class="plano__zona" data-solo="educacion" x="24" y="124" data-i18n="services.plan.edu.class1">Aula 1</text>
+              <text class="plano__zona" data-solo="educacion" x="144" y="124" data-i18n="services.plan.edu.class2">Aula 2</text>
+              <text class="plano__zona" data-solo="educacion" x="264" y="29" data-i18n="services.plan.edu.library">Biblioteca</text>
+              <text class="plano__zona" data-solo="educacion" x="24" y="172" data-i18n="services.plan.edu.lab">Sala de cómputo</text>
+              <text class="plano__zona" x="382" y="281" text-anchor="end" data-i18n="services.plan.datacenter">Centro de datos</text>
+
+              <!-- Equipos fijos de la red: siempre visibles -->
+              <g class="plano__rack"><rect x="302" y="214" width="24" height="48" rx="1.5"/><use href="#ph-hard-drives" x="305" y="229" width="18" height="18"/></g>
+              <g class="plano__ap" data-solo="empresa"><circle cx="80" cy="46" r="7.5"/><use href="#ph-wifi-high" x="75" y="40.5" width="10" height="10"/><circle cx="222" cy="170" r="7.5"/><use href="#ph-wifi-high" x="217" y="164.5" width="10" height="10"/><circle cx="340" cy="46" r="7.5"/><use href="#ph-wifi-high" x="335" y="40.5" width="10" height="10"/></g>
+              <g class="plano__ap" data-solo="hotel"><circle cx="200" cy="113" r="7.5"/><use href="#ph-wifi-high" x="195" y="107.5" width="10" height="10"/><circle cx="324" cy="113" r="7.5"/><use href="#ph-wifi-high" x="319" y="107.5" width="10" height="10"/><circle cx="100" cy="196" r="7.5"/><use href="#ph-wifi-high" x="95" y="190.5" width="10" height="10"/><circle cx="220" cy="228" r="7.5"/><use href="#ph-wifi-high" x="215" y="222.5" width="10" height="10"/></g>
+              <g class="plano__ap" data-solo="educacion"><circle cx="86" cy="74" r="7.5"/><use href="#ph-wifi-high" x="81" y="68.5" width="10" height="10"/><circle cx="206" cy="74" r="7.5"/><use href="#ph-wifi-high" x="201" y="68.5" width="10" height="10"/><circle cx="360" cy="92" r="7.5"/><use href="#ph-wifi-high" x="355" y="86.5" width="10" height="10"/><circle cx="106" cy="218" r="7.5"/><use href="#ph-wifi-high" x="101" y="212.5" width="10" height="10"/></g>
+
+              <g class="capa capa--soporte plano__ok" data-capa="soporte">
+                <g transform="translate(326 210)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g><g transform="translate(372 234)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g>
+                <g data-solo="empresa"><g transform="translate(90 37)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g><g transform="translate(232 161)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g><g transform="translate(350 37)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g><g transform="translate(68 149)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g><g transform="translate(126 149)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g><g transform="translate(184 149)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g><g transform="translate(68 221)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g><g transform="translate(126 221)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g><g transform="translate(184 221)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g></g>
+                <g data-solo="hotel"><g transform="translate(210 104)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g><g transform="translate(334 104)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g><g transform="translate(110 187)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g><g transform="translate(230 219)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g><g transform="translate(44 231)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g><g transform="translate(70 231)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g><g transform="translate(96 231)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g><g transform="translate(366 157)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g></g>
+                <g data-solo="educacion"><g transform="translate(96 65)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g><g transform="translate(216 65)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g><g transform="translate(370 83)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g><g transform="translate(116 209)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g><g transform="translate(60 183)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g><g transform="translate(102 183)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g><g transform="translate(144 183)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g><g transform="translate(186 183)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g><g transform="translate(60 235)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g><g transform="translate(102 235)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g><g transform="translate(144 235)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g><g transform="translate(186 235)"><circle r="6.5"/><use href="#ph-check-circle" x="-6" y="-6" width="12" height="12"/></g></g>
+              </g>
+            </svg>
+          </div>
+
+          <ol class="servicios-lista">
+            <li class="servicio servicio--wifi" data-capa="wifi">
+              <h3 class="servicio__titulo">
+                <button class="servicio__activar" type="button" aria-controls="plano" aria-pressed="true">
+                  <svg class="servicio__icono" viewBox="0 0 256 256" width="28" height="28" aria-hidden="true" focusable="false"><use href="#ph-wifi-high"/></svg>
+                  <span data-i18n="services.wifi.title">Redes inalámbricas</span>
+                </button>
+              </h3>
+              <p data-i18n="services.wifi.text">Hacemos el estudio de sitio, diseñamos la cobertura e instalamos y configuramos Wi‑Fi corporativo Ruckus para que la señal llegue a cada puesto.</p>
+            </li>
+            <li class="servicio servicio--cableado" data-capa="cableado">
+              <h3 class="servicio__titulo">
+                <button class="servicio__activar" type="button" aria-controls="plano" aria-pressed="false">
+                  <svg class="servicio__icono" viewBox="0 0 256 256" width="28" height="28" aria-hidden="true" focusable="false"><use href="#ph-plugs-connected"/></svg>
+                  <span data-i18n="services.cabling.title">Cableado estructurado</span>
+                </button>
+              </h3>
+              <p data-i18n="services.cabling.text">Instalamos y certificamos cableado de cobre y fibra óptica con CommScope, Systimax y Leviton, desde cada puesto hasta el rack.</p>
+            </li>
+            <li class="servicio servicio--firewall" data-capa="firewall">
+              <h3 class="servicio__titulo">
+                <button class="servicio__activar" type="button" aria-controls="plano" aria-pressed="false">
+                  <svg class="servicio__icono" viewBox="0 0 256 256" width="28" height="28" aria-hidden="true" focusable="false"><use href="#ph-shield-check"/></svg>
+                  <span data-i18n="services.firewall.title">Seguridad perimetral</span>
+                </button>
+              </h3>
+              <p data-i18n="services.firewall.text">Vendemos, instalamos y configuramos firewalls SonicWall en la entrada de internet para proteger toda tu red.</p>
+            </li>
+            <li class="servicio servicio--licencias" data-capa="licencias">
+              <h3 class="servicio__titulo">
+                <button class="servicio__activar" type="button" aria-controls="plano" aria-pressed="false">
+                  <svg class="servicio__icono" viewBox="0 0 256 256" width="28" height="28" aria-hidden="true" focusable="false"><use href="#ph-cloud-check"/></svg>
+                  <span data-i18n="services.licensing.title">Licenciamiento Ruckus</span>
+                </button>
+              </h3>
+              <p data-i18n="services.licensing.text">Vendemos y renovamos licencias Ruckus en la nube y locales, para que tus access points sigan administrados y con soporte del fabricante.</p>
+            </li>
+            <li class="servicio servicio--equipos" data-capa="equipos">
+              <h3 class="servicio__titulo">
+                <button class="servicio__activar" type="button" aria-controls="plano" aria-pressed="false">
+                  <svg class="servicio__icono" viewBox="0 0 256 256" width="28" height="28" aria-hidden="true" focusable="false"><use href="#ph-desktop-tower"/></svg>
+                  <span data-i18n="services.computers.title">Equipos de cómputo</span>
+                </button>
+              </h3>
+              <p data-i18n="services.computers.text">Vendemos y arrendamos equipos Lenovo y HP para cada puesto de trabajo, listos para conectarse a tu red.</p>
+            </li>
+            <li class="servicio servicio--soporte" data-capa="soporte">
+              <h3 class="servicio__titulo">
+                <button class="servicio__activar" type="button" aria-controls="plano" aria-pressed="false">
+                  <svg class="servicio__icono" viewBox="0 0 256 256" width="28" height="28" aria-hidden="true" focusable="false"><use href="#ph-wrench"/></svg>
+                  <span data-i18n="services.support.title">Mantenimiento y soporte</span>
+                </button>
+              </h3>
+              <p data-i18n="services.support.text">Hacemos mantenimiento preventivo y correctivo de toda la red, y atendemos tus solicitudes en nuestra mesa de ayuda por tickets.</p>
+              <a class="servicio__ticket" href="https://www.ikonect.com.co/tickects/" target="_blank" rel="noopener noreferrer"><span data-i18n="services.support.ticket">Abrir un ticket</span> <span class="sr-only" data-i18n="services.support.newtab">(se abre en una pestaña nueva)</span><svg class="servicio__ticket-icono" viewBox="0 0 256 256" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ph-arrow-square-out"/></svg></a>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="fabricantes" data-theme="light">
+      <div class="contenedor">
+        <h2 data-i18n="manufacturers.title">Fabricantes con los que trabajamos</h2>
+      </div>
+    </section>
+
+    <section id="clientes" data-theme="light">
+      <div class="contenedor">
+        <h2 data-i18n="clients.title">Clientes que ya están conectados</h2>
+      </div>
+    </section>
+
+    <section id="contacto" data-theme="dark">
+      <div class="contenedor">
+        <h2 data-i18n="contact.title">Contáctanos</h2>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="contenedor site-footer__fila">
+      <img class="site-footer__logo" src="assets/brand/logo-blanco.png" alt="Ikonect" width="500" height="149" loading="lazy">
+      <p class="site-footer__copy">© <span id="anio">2026</span> IKONECT S.A.S. <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
+      <a class="site-footer__enlace" href="https://www.ikonect.com.co/tickects/" target="_blank" rel="noopener noreferrer" data-i18n="footer.tickets">Mesa de ayuda</a>
+    </div>
+  </footer>
+
+  <!-- WhatsApp: el número está pendiente de confirmar (clase pendiente en la sección de contacto) -->
+  <a class="wa-float" href="https://wa.me/57XXXXXXXXXX" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp" data-i18n-attr="aria-label:wa.aria">
+    <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" focusable="false"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+</body>
+</html>

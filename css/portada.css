@@ -1,0 +1,237 @@
+/* Portada (#inicio) y Nosotros (#nosotros) */
+
+/* Altura de la curva blanca con la que Nosotros monta sobre la portada */
+#inicio, #nosotros { --curva-h: clamp(40px, 7vw, 120px); }
+
+/* ---------- Portada ---------- */
+#inicio {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  min-height: min(100svh, 820px);
+  padding-top: calc(var(--header-h) + clamp(2rem, 7svh, 4.5rem));
+  /* Celular y tableta vertical: el contenido queda por encima del dibujo de las curvas */
+  padding-bottom: calc(var(--arcos-lado) + clamp(1rem, 3svh, 2rem));
+}
+#inicio { --arcos-lado: min(100vw, 40svh); }
+html:not(.js) #inicio { padding-top: clamp(2.5rem, 7svh, 4.5rem); }
+
+.portada { position: relative; z-index: 1; }
+.portada__texto { max-width: 40rem; }
+
+#inicio h1 {
+  font-size: clamp(2.375rem, 1.1rem + 4.2vw, 4.5rem);
+  line-height: 1.04;
+}
+.portada__sub {
+  margin-top: clamp(1rem, 2.5vw, 1.5rem);
+  max-width: 46ch;
+  color: var(--on-navy-2);
+  font-size: clamp(1.0625rem, .95rem + .45vw, 1.25rem);
+  font-weight: 300;
+  line-height: 1.6;
+}
+.portada__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: clamp(1.5rem, 3.5vw, 2.25rem);
+}
+.portada__ghost { color: var(--cyan); }
+
+/* Curvas del isotipo: un cuadrado anclado abajo a la izquierda, a sangre.
+   En vertical forman una composición debajo de los botones; ningún texto queda sobre los trazos. */
+.arcos {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 0;
+  width: var(--arcos-lado);
+  height: auto;
+  aspect-ratio: 1;
+  pointer-events: none;
+}
+.arcos__arco {
+  fill: none;
+  stroke-width: 28;
+  stroke-linecap: butt;
+}
+.arcos__arco--exterior { stroke: var(--teal); }
+.arcos__arco--medio { stroke: var(--cyan); }
+.arcos__stop { stop-color: var(--signal-blue); }
+.arcos__stop--fin { stop-opacity: 0; }
+.arcos__punto { fill: var(--teal); }
+
+/* El dibujo solo se anima con JavaScript; sin él las curvas se ven completas.
+   Cada trazo nace en su pie (abajo a la izquierda, el punto M del path) y sube hacia la derecha;
+   la señal se propaga hacia afuera: interior, medio y exterior, con 140 ms entre cada uno. */
+.js .arcos__arco {
+  stroke-dasharray: 1 2;
+  stroke-dashoffset: 1;
+  animation: arcos-trazo 1.2s var(--ease-out) forwards;
+}
+.js .arcos__arco--interior { animation-delay: 0ms; }
+.js .arcos__arco--medio { animation-delay: 140ms; }
+.js .arcos__arco--exterior { animation-delay: 280ms; }
+/* El punto aparece cuando termina el arco exterior (280 + 1200 ms), desde .9 y nunca desde 0 */
+.js .arcos__punto {
+  opacity: 0;
+  transform: scale(.9);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: arcos-punto 250ms var(--ease-out) 1480ms forwards;
+}
+@keyframes arcos-trazo { to { stroke-dashoffset: 0; } }
+@keyframes arcos-punto { to { opacity: 1; transform: scale(1); } }
+@keyframes arcos-aparece { to { opacity: 1; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .arcos__arco { animation: none; stroke-dashoffset: 0; }
+  .js .arcos__punto { transform: none; animation: arcos-aparece 250ms linear forwards; }
+}
+
+/* Escritorio y celular horizontal: dos columnas. El texto empieza en el centro de la pantalla y las
+   curvas ocupan la mitad izquierda (50 % menos un margen) en una caja cuadrada pegada al texto, para que
+   en monitores anchos acompañen al contenido en vez de quedarse en el borde. */
+@media (min-width: 900px), (min-width: 700px) and (orientation: landscape) {
+  #inicio { padding-bottom: calc(var(--curva-h) + clamp(2rem, 7svh, 4.5rem)); }
+  .arcos {
+    left: auto;
+    right: calc(50% + clamp(1.5rem, 3vw, 3.5rem));
+    width: auto;
+    max-width: calc(50% - clamp(1.5rem, 3vw, 3.5rem));
+    height: calc(100% - var(--header-h) - 1.5rem);
+  }
+  .portada__texto { width: 50%; max-width: 38rem; margin-left: 50%; }
+  #inicio h1 { font-size: clamp(2.75rem, .9rem + 3.4vw, 4.5rem); }
+}
+
+/* Pantallas bajas (celular horizontal): solo se reduce la tipografía; la caja de curvas conserva la resta del encabezado */
+@media (max-height: 520px) and (orientation: landscape) {
+  #inicio h1 { font-size: clamp(1.875rem, .8rem + 2.6vw, 2.75rem); }
+  .portada__sub { font-size: 1rem; }
+}
+
+/* ---------- Nosotros ---------- */
+#nosotros {
+  position: relative;
+  z-index: 1;
+  padding-top: clamp(2.5rem, 6vw, 5rem);
+}
+/* Borde superior curvo: un cuarto de elipse blanco que sube de izquierda a derecha, como el arco del isotipo */
+#nosotros::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(100% - 1px);
+  height: var(--curva-h);
+  background: inherit;
+  clip-path: ellipse(100% 100% at 100% 100%);
+  pointer-events: none;
+}
+
+.nosotros {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3.5rem);
+}
+.nosotros__frase {
+  font-size: clamp(2.125rem, 1.2rem + 3.2vw, 3.75rem);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -.01em;
+}
+.nosotros__texto { color: var(--ink-2); }
+
+.medios {
+  margin-top: clamp(1.75rem, 4vw, 2.5rem);
+  border-top: 1px solid var(--line);
+}
+.medio {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding-block: .9rem;
+  border-bottom: 1px solid var(--line);
+}
+.medio__linea { width: 4.5rem; height: auto; overflow: visible; }
+.medio__linea path { fill: none; stroke-width: 3.5; stroke-linecap: round; }
+.medio--cobre path { stroke: var(--navy); }
+.medio--cobre circle { fill: var(--navy); }
+.medio--fibra path { stroke: var(--cyan); stroke-dasharray: 9 6; stroke-linecap: butt; }
+.medio--fibra circle { fill: var(--cyan); }
+.medio--inalambrico path { stroke: var(--teal); }
+.medio--inalambrico circle { fill: var(--teal); }
+.medio__texto { display: flex; flex-wrap: wrap; align-items: baseline; gap: .1rem .75rem; }
+.medio__nombre {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+.medio__desc { color: var(--ink-2); font-size: .9375rem; }
+
+/* Pulso de la fibra y onda del inalámbrico: solo existen durante la animación */
+.medio__pulso {
+  fill: var(--cyan);
+  stroke: color-mix(in srgb, var(--cyan) 35%, transparent);
+  stroke-width: 5;
+  opacity: 0;
+}
+.medio--inalambrico .medio__onda {
+  fill: none;
+  stroke: var(--teal);
+  stroke-width: 1.5;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* El diagrama se explica una vez al entrar en pantalla (js/nosotros.js agrega .is-animado).
+   Cobre se traza, un pulso de luz recorre la fibra y la onda inalámbrica se propaga; 180 ms entre filas.
+   Sin JavaScript todo queda dibujado. */
+.js .medio--cobre path,
+.js .medio--inalambrico path { stroke-dasharray: 1 2; stroke-dashoffset: 1; }
+.js .medio--cobre .medio__fin,
+.js .medio--inalambrico .medio__fin { opacity: 0; }
+.js .medios.is-animado .medio--cobre path { animation: medio-trazo 600ms var(--ease-out) forwards; }
+.js .medios.is-animado .medio--cobre .medio__fin { animation: medio-aparece 200ms var(--ease-out) 450ms forwards; }
+.js .medios.is-animado .medio__pulso { animation: medio-pulso 900ms var(--ease-out) 180ms; }
+.js .medios.is-animado .medio--inalambrico path { animation: medio-trazo 700ms var(--ease-out) 360ms forwards; }
+.js .medios.is-animado .medio--inalambrico .medio__fin { animation: medio-aparece 200ms var(--ease-out) 900ms forwards; }
+.js .medios.is-animado .medio__onda { animation: medio-onda 700ms var(--ease-out) 960ms; }
+@keyframes medio-trazo { to { stroke-dashoffset: 0; } }
+@keyframes medio-aparece { to { opacity: 1; } }
+@keyframes medio-pulso {
+  0% { opacity: 0; transform: translateX(0); }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { opacity: 0; transform: translateX(86px); }
+}
+@keyframes medio-onda {
+  0% { opacity: .8; transform: scale(1); }
+  100% { opacity: 0; transform: scale(3.2); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .medio--cobre path,
+  .js .medio--inalambrico path,
+  .js .medios.is-animado .medio--cobre path,
+  .js .medios.is-animado .medio--inalambrico path { animation: none; stroke-dashoffset: 0; }
+  .js .medio--cobre .medio__fin,
+  .js .medio--inalambrico .medio__fin { opacity: 1; animation: none; }
+  .js .medios.is-animado .medio__pulso,
+  .js .medios.is-animado .medio__onda { animation: none; }
+}
+
+/* Grilla asimétrica 7/5 */
+@media (min-width: 900px) {
+  .nosotros {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: start;
+    column-gap: clamp(1.5rem, 3vw, 3rem);
+  }
+  .nosotros__frase { grid-column: 1 / span 7; padding-right: clamp(0rem, 2vw, 2rem); }
+  .nosotros__cuerpo { grid-column: 8 / span 5; padding-top: .5rem; }
+}
