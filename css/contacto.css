@@ -1,1 +1,231 @@
-/* Estilos de contacto: se completan en una tarea posterior */
+/* Contacto (#contacto) y redes del pie de página
+   Cierra la página sobre azul noche: borde superior curvo, simétrico al de Nosotros, y un eco estático de las
+   curvas de la portada en la esquina inferior derecha. Sin formulario: filas grandes con wa.me, mailto y tel. */
+
+#contacto {
+  --eco-lado: clamp(160px, 26vw, 380px);
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+  padding-top: var(--seccion-espacio);
+  /* Celular y tableta: un poco de aire para el eco de las curvas (en escritorio, ver la media query) */
+  padding-bottom: calc(var(--eco-lado) * .35 + 2rem);
+}
+
+/* Borde superior curvo: el mismo cuarto de elipse de Nosotros, reflejado (sube de derecha a izquierda) */
+#contacto::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(100% - 1px);
+  height: var(--curva-h);
+  background: inherit;
+  clip-path: ellipse(100% 100% at 0% 100%);
+  pointer-events: none;
+}
+
+/* ---------- Eco de las curvas: estático, reflejado y discreto ---------- */
+/* Capa que recorta el eco: la sección no puede llevar overflow:hidden porque la curva ::before sobresale por arriba */
+.contacto__eco {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+/* Se usa #contacto para ganar a las reglas de posición y animación de .arcos en portada.css.
+   Las curvas salen parcialmente por la derecha y por abajo, como si continuaran fuera de la página. */
+#contacto .arcos--eco {
+  position: absolute;
+  left: auto;
+  right: calc(var(--eco-lado) * -.14);
+  bottom: calc(var(--eco-lado) * -.4);
+  width: var(--eco-lado);
+  max-width: none;
+  height: auto;
+  aspect-ratio: 1;
+  opacity: .25;
+  transform: scaleX(-1);
+  pointer-events: none;
+}
+#contacto .arcos__arco {
+  animation: none;
+  stroke-dasharray: none;
+  stroke-dashoffset: 0;
+}
+#contacto .arcos__punto {
+  animation: none;
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Contenido ---------- */
+.contacto {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3rem);
+}
+#contacto h2 {
+  font-size: clamp(2.5rem, 1.4rem + 4.4vw, 4.5rem);
+  letter-spacing: -.01em;
+}
+.contacto__intro {
+  margin-top: clamp(.75rem, 2vw, 1.25rem);
+  max-width: 34ch;
+  color: var(--on-navy-2);
+  font-size: clamp(1.0625rem, .95rem + .45vw, 1.25rem);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* Cuatro filas grandes: ícono, etiqueta y valor en la tipografía de títulos */
+.contacto__lista {
+  border-top: 1px solid color-mix(in srgb, var(--on-navy-2) 22%, transparent);
+}
+.contacto__item {
+  border-bottom: 1px solid color-mix(in srgb, var(--on-navy-2) 22%, transparent);
+}
+.contacto__fila {
+  display: flex;
+  align-items: center;
+  gap: clamp(.875rem, 2.5vw, 1.5rem);
+  min-height: 44px;
+  padding: clamp(1rem, 2.6vw, 1.5rem) clamp(.75rem, 2vw, 1.25rem);
+  color: var(--paper);
+  text-decoration: none;
+  border-radius: 12px;
+  transition: background-color 200ms var(--ease-out), transform 160ms var(--ease-out);
+}
+.contacto__icono {
+  flex: none;
+  width: clamp(28px, 2rem + .6vw, 40px);
+  height: auto;
+  color: var(--teal);
+}
+.contacto__texto {
+  display: grid;
+  gap: .125rem;
+  min-width: 0;
+}
+.contacto__etiqueta {
+  color: var(--on-navy-2);
+  font-size: .9375rem;
+  font-weight: 600;
+}
+.contacto__valor {
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 1rem + 1.7vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+/* El marcador pendiente conserva el subrayado punteado pero se lee en blanco */
+.contacto__valor.pendiente { color: var(--paper); text-decoration-thickness: 1px; }
+
+/* WhatsApp es la acción principal: la fila va sobre una superficie más profunda y con el ícono en cian */
+.contacto__item--principal { border-bottom-color: transparent; }
+.contacto__item--principal .contacto__fila {
+  margin-block: .5rem;
+  background: var(--navy-deep);
+}
+.contacto__item--principal .contacto__icono { color: var(--cyan); }
+
+a.contacto__fila:active { transform: scale(.99); }
+a.contacto__fila:focus-visible { outline-offset: 2px; }
+
+@media (hover: hover) and (pointer: fine) {
+  a.contacto__fila:hover { background: color-mix(in srgb, var(--navy-deep) 70%, transparent); }
+  .contacto__item--principal a.contacto__fila:hover { background: color-mix(in srgb, var(--navy-deep) 90%, var(--cyan)); }
+}
+
+/* Redes y mesa de ayuda */
+.contacto__extra {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5rem 2rem;
+}
+.contacto__redes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem 1.5rem;
+}
+.contacto__enlace {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  min-height: 44px;
+  color: var(--paper);
+  font-weight: 600;
+  text-underline-offset: 4px;
+}
+.contacto__enlace svg { flex: none; color: var(--cyan); }
+.contacto__mesa { text-decoration: none; }
+.contacto__mesa span:first-of-type {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--paper) 40%, transparent);
+  text-underline-offset: 4px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .contacto__mesa:hover span:first-of-type { text-decoration-color: currentColor; }
+}
+
+/* Celular pequeño: el eco quedaría detrás del texto, así que se omite */
+@media (max-width: 479px) {
+  .contacto__eco { display: none; }
+  #contacto { padding-bottom: clamp(2.5rem, 8vw, 3.5rem); }
+}
+
+/* Escritorio y tableta horizontal: título a la izquierda, filas a la derecha */
+@media (min-width: 900px) {
+  #contacto { padding-bottom: clamp(2.5rem, 6vw, 5rem); }
+  .contacto {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    grid-template-areas:
+      "cabecera lista"
+      "extra    lista";
+    grid-template-rows: auto 1fr;
+    column-gap: clamp(2.5rem, 6vw, 6rem);
+    align-items: start;
+  }
+  .contacto__cabecera { grid-area: cabecera; }
+  .contacto__lista { grid-area: lista; }
+  .contacto__extra { grid-area: extra; flex-direction: column; align-items: flex-start; gap: .25rem; }
+}
+
+/* Celular horizontal: poca altura, títulos y filas más compactos */
+@media (max-height: 520px) and (orientation: landscape) {
+  #contacto h2 { font-size: clamp(2rem, 1rem + 3vw, 2.75rem); }
+  .contacto__fila { padding-block: .75rem; }
+  .contacto__valor { font-size: clamp(1.25rem, .9rem + 1.4vw, 1.75rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a.contacto__fila:active { transform: none; }
+}
+
+/* ---------- Redes en el pie de página ---------- */
+.site-footer__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5rem 1.5rem;
+}
+.site-footer__redes { display: flex; gap: .25rem; margin-inline-start: -10px; }
+.site-footer__red {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: var(--paper);
+  transition: background-color 200ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .site-footer__red:hover { background: color-mix(in srgb, var(--paper) 10%, transparent); color: var(--paper); }
+}
+
+/* Celular: el botón flotante de WhatsApp (56 px + 20 px de margen) no tapa los enlaces del pie */
+@media (max-width: 899px) {
+  .site-footer { padding-bottom: calc(2rem + 56px + 20px); }
+}

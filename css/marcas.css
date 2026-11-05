@@ -1,1 +1,454 @@
-/* Estilos de marcas: se completan en una tarea posterior */
+/* Fabricantes (#fabricantes) y clientes (#clientes)
+   Las marcas son tarjetas con el logo en monocromo; al abrirlas (cursor, foco con teclado o toque) el logo pasa a
+   color, se dibujan los arcos del isotipo en la esquina y la información sube desde abajo con clip-path */
+
+/* ---------- Cabeceras ---------- */
+#fabricantes { background: var(--mist); }
+/* La curva azul de Contacto monta sobre el final de Clientes: su alto se suma a medio espacio de aire
+   (el resto del ritmo lo da el padding-top de Contacto, bajo la curva) */
+#clientes { padding-bottom: calc(var(--curva-h) + var(--seccion-espacio) / 2); }
+
+.fabricantes__cabecera,
+.clientes__cabecera { max-width: 46rem; }
+#fabricantes h2,
+#clientes h2 {
+  font-size: clamp(2rem, 1.2rem + 2.9vw, 3.25rem);
+  letter-spacing: -.01em;
+}
+.fabricantes__intro,
+.clientes__intro {
+  margin-top: clamp(.75rem, 2vw, 1.25rem);
+  max-width: 52ch;
+  color: var(--ink-2);
+  font-size: clamp(1.0625rem, .98rem + .3vw, 1.1875rem);
+  font-weight: 300;
+}
+
+/* ---------- Grilla de fabricantes: 1, 2 o 4 columnas; Ruckus ocupa 2×2 ---------- */
+.marcas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(.75rem, 1.6vw, 1.25rem);
+  margin-top: clamp(1.75rem, 4vw, 3rem);
+}
+@media (min-width: 600px) {
+  .marcas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .marca--destacada,
+  .marcas__cierre { grid-column: 1 / -1; }
+}
+@media (min-width: 960px) {
+  .marcas { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .marca--destacada { grid-column: span 2; grid-row: span 2; }
+  .marcas__cierre { grid-column: span 2; }
+}
+
+/* ---------- Tarjeta de marca ---------- */
+.marca {
+  --info-h: 4.5rem; /* js/marcas.js lo ajusta al alto real de la información */
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: clamp(9.5rem, 7rem + 6vw, 12rem);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* El h3 y su botón cubren toda la tarjeta: cualquier punto se puede tocar */
+.marca__titulo {
+  grid-area: 1 / 1 / -1 / -1;
+  margin: 0;
+  font: inherit;
+}
+.marca__abrir {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 44px;
+  padding: 1.5rem 1.25rem;
+  border: 0;
+  border-radius: 13px;
+  background: transparent;
+  color: var(--navy);
+  font: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.marca__abrir:focus-visible { outline-offset: -5px; }
+
+.marca__logo {
+  width: auto;
+  max-width: 100%;
+  max-width: min(100%, 12.5rem);
+  height: 2rem;
+  max-height: 3.5rem; /* tope defensivo: el mayor tamaño óptico (cuadrado) */
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: .75;
+  transition: filter 240ms var(--ease-out), opacity 240ms var(--ease-out), transform 240ms var(--ease-out);
+}
+/* Tamaño óptico: los logotipos anchos van más bajos que los de proporción media y los cuadrados */
+.marca__logo[data-forma="ancho"] { height: 1.75rem; }
+.marca__logo[data-forma="medio"] { height: 2.5rem; }
+.marca__logo[data-forma="cuadrado"] { height: 3.5rem; }
+
+.marca__icono {
+  position: absolute;
+  top: .75rem;
+  right: .75rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--ink-2);
+  transition: transform 240ms var(--ease-out), color 240ms var(--ease-out);
+}
+.marca__abrir[aria-expanded="true"] .marca__icono { transform: rotate(45deg); color: var(--navy); }
+html:not(.js) .marca__icono { display: none; }
+
+/* Si el logo no carga, el nombre ocupa su lugar */
+.marca.sin-logo .marca__logo { display: none; }
+.marca__nombre {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.marca__info {
+  grid-area: 2 / 1;
+  z-index: 1;
+  padding: 0 3.25rem 1.25rem 1.25rem; /* la esquina derecha queda para los arcos */
+  pointer-events: none;
+}
+.marca__info li {
+  position: relative;
+  padding-left: 1rem;
+  font-size: .9375rem;
+  line-height: 1.4;
+}
+.marca__info li + li { margin-top: .3rem; }
+.marca__info li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .5em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+}
+
+/* Con JavaScript la información se oculta hasta que la tarjeta se abre; sin él queda visible.
+   visibility la saca también del lector de pantalla: al cerrar cambia cuando termina el recorte (240 ms),
+   al abrir cambia de inmediato. El foco con teclado abre la tarjeta (js/marcas.js agrega .abierta). */
+.js .marca__info {
+  clip-path: inset(100% 0 0 0);
+  visibility: hidden;
+  transition: clip-path 240ms var(--ease-out), visibility 0s linear 240ms;
+}
+html:not(.js) .marca__abrir { cursor: default; }
+
+/* Estado abierto: .abierta (js/marcas.js la sincroniza con aria-expanded="true") o cursor encima (solo con puntero fino) */
+.marca.abierta .marca__logo { filter: none; opacity: 1; }
+.js .marca.abierta .marca__info {
+  clip-path: inset(0);
+  visibility: visible;
+  transition: clip-path 240ms var(--ease-out), visibility 0s linear 0s;
+}
+.js .marca.abierta:not(.marca--destacada) .marca__logo {
+  transform: translateY(calc(var(--info-h) / -2));
+}
+/* Sin JavaScript la información siempre ocupa su fila: el logo queda centrado sobre ella */
+html:not(.js) .marca:not(.marca--destacada) .marca__logo { transform: translateY(calc(var(--info-h) / -2)); }
+
+@media (hover: hover) and (pointer: fine) {
+  .marca:hover .marca__logo { filter: none; opacity: 1; }
+  .js .marca:hover .marca__info {
+    clip-path: inset(0);
+    visibility: visible;
+    transition: clip-path 240ms var(--ease-out), visibility 0s linear 0s;
+  }
+  .js .marca:not(.marca--destacada):hover .marca__logo { transform: translateY(calc(var(--info-h) / -2)); }
+  .marca:hover .marca__icono { color: var(--navy); }
+}
+.marca__abrir:active .marca__icono { transform: scale(.9); }
+.marca__abrir[aria-expanded="true"]:active .marca__icono { transform: rotate(45deg) scale(.9); }
+
+/* Arcos del isotipo en la esquina inferior derecha: se dibujan de adentro hacia afuera al abrir
+   (cursor, foco con teclado o .abierta) y se borran más rápido al cerrar */
+.marca__esquina {
+  position: absolute;
+  right: .875rem;
+  bottom: .875rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  overflow: visible;
+  pointer-events: none;
+}
+.marca__arco {
+  fill: none;
+  stroke-width: 2.75;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 160ms var(--ease-out), opacity 160ms var(--ease-out);
+}
+.marca__arco--interior { stroke: var(--signal-blue); }
+.marca__arco--media { stroke: var(--cyan); }
+.marca__arco--exterior { stroke: var(--teal); }
+.marca.abierta .marca__arco,
+.marca__abrir:focus-visible .marca__arco {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 260ms var(--ease-out), opacity 260ms var(--ease-out);
+}
+.marca.abierta .marca__arco--media,
+.marca__abrir:focus-visible .marca__arco--media { transition-delay: 40ms; }
+.marca.abierta .marca__arco--exterior,
+.marca__abrir:focus-visible .marca__arco--exterior { transition-delay: 80ms; }
+@media (hover: hover) and (pointer: fine) {
+  .marca:hover .marca__arco {
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 260ms var(--ease-out), opacity 260ms var(--ease-out);
+  }
+  .marca:hover .marca__arco--media { transition-delay: 40ms; }
+  .marca:hover .marca__arco--exterior { transition-delay: 80ms; }
+}
+
+/* ---------- Ruckus: tarjeta destacada sobre azul noche ---------- */
+.marca--destacada {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2vw, 1.5rem);
+  padding: clamp(1.5rem, 3.2vw, 2.5rem);
+  border-color: var(--navy);
+  background: var(--navy);
+  color: var(--paper);
+}
+.marca--destacada .marca__titulo { position: relative; z-index: 1; }
+.marca--destacada .marca__abrir {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  height: auto;
+  padding: .25rem;
+  margin: -.25rem;
+  width: calc(100% + .5rem);
+  border-radius: 8px;
+  color: var(--paper);
+}
+.marca--destacada .marca__abrir:focus-visible { outline-offset: 2px; }
+/* El logo de Ruckus es negro: sobre azul se muestra en blanco */
+.marca--destacada .marca__logo {
+  height: clamp(1.75rem, 1.2rem + 1.6vw, 2.6rem);
+  max-width: 70%;
+  filter: brightness(0) invert(1);
+  opacity: 1;
+}
+.marca--destacada.abierta .marca__logo { filter: brightness(0) invert(1); }
+.marca--destacada .marca__icono {
+  position: static;
+  flex: none;
+  width: 1.75rem;
+  height: 1.75rem;
+  color: var(--on-navy-2);
+}
+.marca--destacada .marca__abrir[aria-expanded="true"] .marca__icono { color: var(--paper); }
+@media (hover: hover) and (pointer: fine) {
+  .marca--destacada:hover .marca__logo { filter: brightness(0) invert(1); }
+  .marca--destacada:hover .marca__icono { color: var(--paper); }
+}
+.marca--destacada.sin-logo .marca__nombre { font-size: clamp(1.75rem, 1.2rem + 1.6vw, 2.5rem); }
+
+/* Ondas del isotipo en la esquina, solo decorativas */
+.marca__ondas {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  width: clamp(9rem, 18vw, 15rem);
+  height: auto;
+  pointer-events: none;
+}
+.marca__ondas path { fill: none; stroke-width: 1.5; }
+.marca__ondas path:nth-child(1) { stroke: color-mix(in srgb, var(--signal-blue) 70%, transparent); }
+.marca__ondas path:nth-child(2) { stroke: color-mix(in srgb, var(--teal) 45%, transparent); }
+.marca__ondas path:nth-child(3) { stroke: color-mix(in srgb, var(--cyan) 55%, transparent); }
+
+.marca__lema {
+  position: relative;
+  max-width: 38ch;
+  font-size: clamp(1.0625rem, 1rem + .35vw, 1.25rem);
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--on-navy-2);
+}
+.marca__credenciales { display: grid; gap: .6rem; }
+.marca__credenciales li {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.0625rem, 1rem + .3vw, 1.25rem);
+  font-weight: 700;
+  line-height: 1.25;
+}
+.marca__credenciales svg { flex: none; width: 1.375rem; height: 1.375rem; color: var(--teal); }
+
+.marca--destacada .marca__info {
+  margin-top: auto;
+  padding: clamp(1rem, 2vw, 1.25rem) 0 0;
+  border-top: 1px solid color-mix(in srgb, var(--paper) 16%, transparent);
+}
+.marca__info-titulo {
+  margin-bottom: .6rem;
+  color: var(--on-navy-2);
+  font-size: .875rem;
+  font-weight: 600;
+}
+.marca__productos { display: flex; flex-wrap: wrap; gap: .5rem; }
+.marca__productos li {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  margin: 0;
+  padding: .45rem .9rem .45rem .7rem;
+  border: 1px solid color-mix(in srgb, var(--paper) 22%, transparent);
+  border-radius: 999px;
+  font-size: .9375rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.marca__productos li + li { margin-top: 0; }
+.marca__productos li::before { display: none; }
+.marca__productos svg { flex: none; width: 1.25rem; height: 1.25rem; color: var(--cyan); }
+
+/* ---------- Cierre de la grilla: invitación a cotizar ---------- */
+.marcas__cierre {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+  border: 1px dashed color-mix(in srgb, var(--navy) 28%, transparent);
+  border-radius: 14px;
+}
+.marcas__cierre p {
+  max-width: 24ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1.05rem + .7vw, 1.625rem);
+  font-weight: 700;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+/* ---------- Clientes: una fila por sector, el sector a la izquierda ---------- */
+.sectores {
+  margin-top: clamp(1.75rem, 4vw, 3rem);
+  border-top: 1px solid var(--line);
+}
+.sector {
+  display: grid;
+  gap: 1rem;
+  padding-block: clamp(1.25rem, 3vw, 2rem);
+  border-bottom: 1px solid var(--line);
+}
+.sector__titulo { font-size: var(--fs-h3); }
+.sector__lista {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(.5rem, 1.2vw, 1rem);
+}
+@media (min-width: 768px) {
+  .sector {
+    grid-template-columns: minmax(9rem, 1fr) 3fr;
+    align-items: center;
+    gap: 2rem;
+  }
+  .sector__lista { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.cliente__figura {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  height: 100%;
+  margin: 0;
+  padding: clamp(1rem, 2vw, 1.5rem) .75rem .85rem;
+  border-radius: 12px;
+  background: var(--mist);
+  transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out);
+}
+.cliente__logo {
+  --caja: clamp(3.25rem, 2.6rem + 2vw, 4.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: var(--caja, 4rem); /* crece si un logo ajustado (cuadrado-grande) la supera */
+  /* Tope defensivo: aunque falle una regla de tamaño, el logo nunca sale de la tarjeta (1,25 × 4,5rem) */
+  max-height: 5.625rem;
+  overflow: hidden;
+}
+.cliente__logo img {
+  width: auto;
+  max-width: 100%;
+  max-width: min(100%, 11.5rem);
+  height: 3rem;
+  height: calc(var(--caja, 4rem) * .72);
+  max-height: 5.625rem;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: .72;
+  transition: filter 200ms var(--ease-out), opacity 200ms var(--ease-out);
+}
+.cliente__logo img[data-forma="ancho"] { height: calc(var(--caja, 4rem) * .46); }
+.cliente__logo img[data-forma="cuadrado"] { height: var(--caja, 4rem); }
+/* Ajustes ópticos: el escudo del Country Club es pequeño y claro; el logo del Anglo tiene mucho aire */
+.cliente__logo img[data-forma="cuadrado-grande"] { height: calc(var(--caja, 4rem) * 1.25); opacity: .85; }
+.cliente__logo img[data-forma="grande"] { height: calc(var(--caja, 4rem) * .9); max-width: min(100%, 13rem); }
+.cliente__nombre {
+  color: var(--ink-2);
+  font-size: .8125rem;
+  line-height: 1.3;
+  text-align: center;
+  text-wrap: balance;
+}
+@media (hover: hover) and (pointer: fine) {
+  .cliente__figura:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px -12px color-mix(in srgb, var(--navy) 45%, transparent);
+  }
+  .cliente__figura:hover img { filter: none; opacity: 1; }
+}
+/* Si el logo no carga, el nombre se muestra en grande */
+.cliente.sin-logo .cliente__logo { display: none; }
+.cliente.sin-logo .cliente__nombre {
+  display: grid;
+  place-items: center;
+  min-height: clamp(3.25rem, 2.6rem + 2vw, 4.5rem);
+  color: var(--navy);
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 1rem + .5vw, 1.375rem);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Los arcos de la esquina solo aparecen y desaparecen con opacidad */
+  .marca__arco { stroke-dashoffset: 0; opacity: 0; }
+  .marca.abierta .marca__arco,
+  .marca__abrir:focus-visible .marca__arco,
+  .marca:hover .marca__arco { opacity: 1; }
+  /* Sin desplazamientos: el logo queda quieto sobre la información y las tarjetas no suben */
+  .js .marca:not(.marca--destacada) .marca__logo { transform: translateY(calc(var(--info-h) / -2)); }
+  .marca__abrir:active .marca__icono { transform: none; }
+  .marca__abrir[aria-expanded="true"]:active .marca__icono { transform: rotate(45deg); }
+  .cliente__figura:hover { transform: none; }
+}

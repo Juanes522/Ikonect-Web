@@ -32,6 +32,10 @@
 
   --ease-out: cubic-bezier(.23, 1, .32, 1);
   --header-h: 4.5rem;
+  /* Medio espacio entre secciones: dos secciones seguidas suman clamp(4rem, 7vw, 6.5rem) */
+  --seccion-espacio: clamp(2rem, 3.5vw, 3.25rem);
+  /* Alto de las curvas blancas/azules con que Nosotros y Contacto montan sobre la sección anterior */
+  --curva-h: clamp(40px, 7vw, 120px);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -114,17 +118,27 @@ h3 { font-size: var(--fs-h3); font-weight: 700; }
   text-underline-offset: 4px;
 }
 [data-theme="dark"] .pendiente { color: var(--on-navy-2); }
+/* El atributo hidden gana siempre (p. ej. para ocultar .wa-float o una fila de contacto sin dato confirmado) */
+[hidden] { display: none !important; }
 
 /* Foco visible */
 :focus-visible {
   outline: 3px solid var(--cyan);
   outline-offset: 3px;
 }
+/* Sobre blanco o niebla el cian no llega a 3:1: el anillo pasa a azul noche.
+   Las superficies azules dentro de zonas claras (tarjeta de Ruckus, menú móvil abierto) conservan el cian. */
+[data-theme="light"] :focus-visible,
+.site-header.is-light :focus-visible { outline-color: var(--navy); }
+[data-theme="light"] .marca--destacada :focus-visible { outline-color: var(--cyan); }
+@media (max-width: 1019px) {
+  .site-header.is-light .site-nav :focus-visible { outline-color: var(--cyan); }
+}
 
 /* Secciones: base provisional hasta que cada tarea defina la suya */
 main > section {
   scroll-margin-top: var(--header-h);
-  padding-block: clamp(4rem, 9vw, 7rem);
+  padding-block: var(--seccion-espacio);
 }
 [data-theme="dark"] { background: var(--navy); color: var(--paper); }
 [data-theme="light"] { background: var(--paper); color: var(--navy); }
@@ -332,7 +346,13 @@ main > section {
   .site-nav__lista a[aria-current="true"] { color: var(--cyan); font-weight: 700; }
   .site-nav__cta { display: inline-flex; }
   .js .site-nav { display: none; }
-  .js .site-nav.is-open { display: flex; }
+  .js .site-nav.is-open {
+    display: flex;
+    /* Celular horizontal: el menú se desplaza dentro de la pantalla en vez de cortar «Contáctanos» */
+    max-height: calc(100svh - var(--header-h));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
 }
 
 /* Sin JavaScript: encabezado sólido en flujo normal y enlaces visibles en una fila que ajusta */

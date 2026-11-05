@@ -333,6 +333,9 @@ html:not(.js) .servicio::before { transform: scaleY(1); }
   .js .servicio { padding-block: clamp(1.25rem, 9svh, 4.5rem); }
   /* El último servicio alcanza el centro de la pantalla sin que el plano se despegue antes */
   .js .servicios-lista { padding-bottom: clamp(0rem, 12svh, 8rem); }
+  /* Ese recorrido ya deja aire bajo la lista: la sección no suma su padding inferior (no afecta al sticky,
+     que se mide dentro de .servicios) */
+  .js #servicios { padding-bottom: 0; }
 }
 
 /* Celular horizontal (poca altura): selector y márgenes más ajustados para que el plano gane alto, y

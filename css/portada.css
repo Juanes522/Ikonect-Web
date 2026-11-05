@@ -1,7 +1,7 @@
 /* Portada (#inicio) y Nosotros (#nosotros) */
 
 /* Altura de la curva blanca con la que Nosotros monta sobre la portada */
-#inicio, #nosotros { --curva-h: clamp(40px, 7vw, 120px); }
+/* (--curva-h vive en base.css: Contacto usa la misma) */
 
 /* ---------- Portada ---------- */
 #inicio {
@@ -63,6 +63,17 @@ html:not(.js) #inicio { padding-top: clamp(2.5rem, 7svh, 4.5rem); }
 .arcos__stop { stop-color: var(--signal-blue); }
 .arcos__stop--fin { stop-opacity: 0; }
 .arcos__punto { fill: var(--teal); }
+/* Arco interior y pierna de la K: azul señal sólido; la máscara del grupo (.arcos__k) los desvanece juntos hacia la derecha */
+.arcos__k .arcos__arco--interior,
+.arcos__diagonal { stroke: var(--signal-blue); }
+.arcos__mascara-stop { stop-color: var(--paper); }
+.arcos__mascara-stop--fin { stop-opacity: 0; }
+/* Pierna de la K: 1,7 veces el grosor de los arcos */
+.arcos__diagonal {
+  fill: none;
+  stroke-width: 48;
+  stroke-linecap: butt;
+}
 
 /* El dibujo solo se anima con JavaScript; sin él las curvas se ven completas.
    Cada trazo nace en su pie (abajo a la izquierda, el punto M del path) y sube hacia la derecha;
@@ -75,6 +86,13 @@ html:not(.js) #inicio { padding-top: clamp(2.5rem, 7svh, 4.5rem); }
 .js .arcos__arco--interior { animation-delay: 0ms; }
 .js .arcos__arco--medio { animation-delay: 140ms; }
 .js .arcos__arco--exterior { animation-delay: 280ms; }
+/* La diagonal brota del arco interior hacia abajo cuando la punta de ese arco ya pasó por el cruce
+   (con este easing el arco llega a la mitad, el punto de 45°, a los ~160 ms) */
+.js .arcos__diagonal {
+  stroke-dasharray: 1 2;
+  stroke-dashoffset: 1;
+  animation: arcos-trazo 600ms var(--ease-out) 200ms forwards;
+}
 /* El punto aparece cuando termina el arco exterior (280 + 1200 ms), desde .9 y nunca desde 0 */
 .js .arcos__punto {
   opacity: 0;
@@ -88,7 +106,8 @@ html:not(.js) #inicio { padding-top: clamp(2.5rem, 7svh, 4.5rem); }
 @keyframes arcos-aparece { to { opacity: 1; } }
 
 @media (prefers-reduced-motion: reduce) {
-  .js .arcos__arco { animation: none; stroke-dashoffset: 0; }
+  .js .arcos__arco,
+  .js .arcos__diagonal { animation: none; stroke-dashoffset: 0; }
   .js .arcos__punto { transform: none; animation: arcos-aparece 250ms linear forwards; }
 }
 
